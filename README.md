@@ -11,9 +11,9 @@ This program will calculate how user input is shifted using two primary factors:
 2. Using a "Offset"
   - The Offset will be calculated by taking the current date in 8 digit format, squaring it, and taking the last 4 digits.
 
-## How key and offset comes together
+## How key and offset come together
 The key and offset will be combined in the following mannor:  
-Key Ex. =  02715  
+Key Ex. =  02715  (used in 4 sets of numbers in groups of 2 - see below)
 Offset Ex. = August 4, 1995 = 040895 = 1672401025 = 1025  
 
 Key &nbsp; &nbsp; &nbsp;     + &nbsp; &nbsp;    Offset &nbsp;   = &nbsp; &nbsp;   Shift   
