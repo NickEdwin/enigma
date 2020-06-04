@@ -32,4 +32,4 @@ Ex: "Hello World!" yields “keder ohulw!”
 *Note - This example shifts the space between words 27 times resulting in the same character again.  
 
 ## Encrypting and Decrypting  
-This program will store each randomly generated key and offset combination so that messages can be both encrpted AND decrypted.
+This program will store each randomly generated key and offset combination so that messages can be both encrypted AND decrypted.
