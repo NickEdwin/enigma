@@ -14,4 +14,13 @@ class EncryptTest < Minitest::Test
     assert_equal 5, encrypt.key.length
   end
 
+  def test_it_knows_todays_date
+    encrypt = Encrypt.new
+    assert_equal Time.now.strftime("%d%m%Y"), encrypt.todays_date
+  end
+
+  def test_it_finds_last_digits_of_squared_date
+    encrypt = Encrypt.new
+    assert_equal "0400", encrypt.offset
+  end
 end
