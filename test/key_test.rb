@@ -14,5 +14,9 @@ class EncryptTest < Minitest::Test
     assert_equal 5, key.generate_key.length
   end
 
-
+  def test_it_splits_key_into_hash
+    key = Key.new
+    key.generate_key
+    assert_equal 4, key.final_key.length
+  end
 end
