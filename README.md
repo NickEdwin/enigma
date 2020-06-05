@@ -9,7 +9,7 @@ This program will calculate how user input is shifted using two primary factors:
 1. Using a "Key"
   - The Key will be a randomly selected 5 digit number.
 2. Using a "Offset"
-  - The Offset will be calculated by taking the current date in 8 digit format, squaring it, and taking the last 4 digits.
+  - The Offset will be calculated by taking the current date in 6 digit format, squaring it, and taking the last 4 digits.
 
 ## How key and offset come together
 The key and offset will be combined in the following mannor:  
