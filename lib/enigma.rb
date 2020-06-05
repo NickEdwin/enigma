@@ -16,5 +16,9 @@ class Enigma
     ("a".."z").to_a << " "
   end
 
+  def shift
+    @key.merge!(@date) { |_, key_value, date_value| key_value + date_value}
+  end
+
 
 end

@@ -12,10 +12,10 @@ class Offset
   def final_offset
     date = generate_offset
     final_offset = Hash.new(0)
-    final_offset = { A: date[0],
-                     B: date[1],
-                     C: date[2],
-                     D: date[3]
+    final_offset = { A: date[0].to_i,
+                     B: date[1].to_i,
+                     C: date[2].to_i,
+                     D: date[3].to_i
                    }
   end
 end

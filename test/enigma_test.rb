@@ -12,12 +12,17 @@ class EnigmaTest < Minitest::Test
   def test_it_has_attributes
     enigma = Enigma.new("message")
     assert_equal "message", enigma.message
-    assert_equal "key", enigma.key
-    assert_equal "date", enigma.date
+    assert_equal 4, enigma.key.length
+    assert_equal 4, enigma.date.length
   end
 
   def test_it_finds_full_alphabet
     enigma = Enigma.new("message")
     assert_equal 27, enigma.alphabet.length
+  end
+
+  def test_it_totals_key_and_date_hash_keys
+    enigma = Enigma.new("message")
+    assert_equal 4, enigma.shift.length
   end
 end
