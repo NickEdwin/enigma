@@ -12,7 +12,9 @@ class EnigmaTest < Minitest::Test
   def test_it_has_attributes
     enigma = Enigma.new("message")
     assert_equal "message", enigma.message
+    assert_instance_of Hash, enigma.key
     assert_equal 4, enigma.key.length
+    assert_instance_of Hash, enigma.date
     assert_equal 4, enigma.date.length
   end
 
