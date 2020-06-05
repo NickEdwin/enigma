@@ -3,26 +3,28 @@ require_relative 'offset'
 require 'date'
 
 class Encryption
+  attr_reader :string
 
-  def initialize
+  def initialize(string, key, date)
+    @string = string
     @key = key
     @date = date
   end
 
   def key
-    key = Key.new("02715").generate_key
+    Key.new(@key).generate_key
   end
 
   def date
-
+    Offset.new(@date).final_offset
   end
-  
+
   def alphabet
     ("a".."z").to_a << " "
   end
 
   def shift
-    @key.merge!(@date) { |_, key_value, date_value| key_value + date_value}
+    key.merge!(date) { |_, key_value, date_value| key_value + date_value}
   end
 
   def split_input(input)
