@@ -36,4 +36,9 @@ class EnigmaTest < Minitest::Test
     expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
     assert_equal expected, enigma.split_input("HELLO WORLD")
   end
+
+  def test_it_encrypts_a_message
+    enigma = Enigma.new
+    assert_equal "WTF", enigma.encryption("Hello World!")
+  end
 end
