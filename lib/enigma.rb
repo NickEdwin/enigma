@@ -11,6 +11,7 @@ class Enigma
   end
 
   def alphabet
+    require"pry"; binding.pry
     ("a".."z").to_a << " "
   end
 
@@ -21,4 +22,21 @@ class Enigma
   def split_input(input)
     input.downcase.split(//)
   end
+
+  def encryption(string)
+   index_counter = 0
+   return_string = []
+   split_input(string).each do |letter|
+     if !alphabet.include?(letter)
+       return_string << letter
+       index_counter += 1
+     elsif
+       require"pry"; binding.pry
+     alphabet.include?(letter) && index_counter == 0 || index_counter % 4 == 0
+       letter.rotate
+
+     end
+   end
+   return_string.join
+ end
 end
