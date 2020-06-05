@@ -30,4 +30,10 @@ class EnigmaTest < Minitest::Test
     assert_equal 4, enigma.shift.length
     assert_equal [:A, :B, :C, :D], enigma.shift.keys
   end
+
+  def test_it_downcases_and_splits_input
+    enigma = Enigma.new
+    expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+    assert_equal expected, enigma.split_input("HELLO WORLD")
+  end
 end

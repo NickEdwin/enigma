@@ -18,6 +18,7 @@ class Enigma
     @key.merge!(@date) { |_, key_value, date_value| key_value + date_value}
   end
 
-
-
+  def split_input(input)
+    input.downcase.split(//)
+  end
 end
