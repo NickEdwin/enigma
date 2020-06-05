@@ -2,12 +2,10 @@ require_relative 'key'
 require_relative 'offset'
 
 class Enigma
-  attr_reader :message,
-              :key,
+  attr_reader :key,
               :date
 
-  def initialize(message, key = "key", date = "date")
-    @message = message
+  def initialize
     @key = Key.new.final_key
     @date = Offset.new.final_offset
   end
@@ -20,6 +18,6 @@ class Enigma
     @key.merge!(@date) { |_, key_value, date_value| key_value + date_value}
   end
 
-  
+
 
 end
