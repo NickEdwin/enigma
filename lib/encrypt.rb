@@ -2,12 +2,13 @@ require 'date'
 
 class Encrypt
 
-  def key
+  def generate_key
     '%05d' % rand(0..99999)
   end
 
   def todays_date
-    Time.now.strftime("%d%m%Y")
+    require"pry"; binding.pry
+    Time.now.strftime("%d%m%y")
   end
 
   def offset
