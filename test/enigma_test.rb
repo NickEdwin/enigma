@@ -24,5 +24,6 @@ class EnigmaTest < Minitest::Test
   def test_it_totals_key_and_date_hash_keys
     enigma = Enigma.new("message")
     assert_equal 4, enigma.shift.length
+    assert_equal [:A, :B, :C, :D], enigma.shift.keys
   end
 end
