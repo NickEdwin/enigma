@@ -50,4 +50,16 @@ class EncryptionTest < Minitest::Test
     encryption = Encryption.new("keder ohulw!", "02715", "040895")
     assert_equal "hello world!", encryption.decryption(encryption.string)
   end
+
+  def test_it_returns_encryption_info
+    encryption = Encryption.new("Hello World!", "02715", "040895")
+    expected = {encryption: "keder ohulw!", key: "02715", date: "040895"}
+    assert_equal expected, encryption.encryption_result
+  end
+
+  def test_it_returns_decryption_info
+    encryption = Encryption.new("keder ohulw!", "02715", "040895")
+    expected = {decryption: "hello world!", key: "02715", date: "040895"}
+    assert_equal expected, encryption.decryption_result
+  end
 end

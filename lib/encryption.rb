@@ -114,4 +114,18 @@ class Encryption
       end
     return_string
   end
+
+  def encryption_result
+    { encryption: encryption(string),
+      key: @key,
+      date: @date
+    }
+   end
+
+   def decryption_result
+     { decryption: decryption(string),
+       key: @key,
+       date: @date
+     }
+    end
 end
