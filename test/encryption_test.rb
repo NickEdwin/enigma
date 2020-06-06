@@ -40,4 +40,10 @@ class EncryptionTest < Minitest::Test
     expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d", "!"]
     assert_equal expected, encryption.split_input(encryption.string)
   end
+
+  def test_it_ecrypts_string
+    encryption = Encryption.new("Hello World!", "02715", "040895")
+    assert_equal "keder ohulw!", encryption.encryption(encryption.string)
+
+  end
 end
