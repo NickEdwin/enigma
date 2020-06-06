@@ -19,4 +19,11 @@ class EncryptTest < Minitest::Test
     key.generate_key
     assert_equal 4, key.generate_key.length
   end
+
+  def test_it_generates_key
+    key = Key.new("12345")
+    expected = {:A=>12, :B=>23, :C=>34, :D=>45}
+    assert_equal expected, key.generate_key
+
+  end
 end
