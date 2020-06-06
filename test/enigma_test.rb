@@ -9,15 +9,19 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
-  # def test_it_starts_with_default_attributes
-  #   enigma = Enigma.new("Hello World!")
-  #   assert_equal 4, enigma.key.length
-  #   assert_equal 4, enigma.offset.length
-  # end
-
-  def test_it_encrypts_a_message
+  def test_it_encrypts_message_with_known_input
     enigma = Enigma.new
-    enigma.encrpt("Hello World!", "02715", "040895")
-    assert_equal 
+    expected = {encryption: "keder ohulw!", key: "02715", date: "040895"}
+    assert_equal expected, enigma.encrypt("Hello World!", "02715", "040895")
+  end
+
+  def test_it_encrypts_message_with_todays_date
+    enigma = Enigma.new
+    assert_equal Time.new.strftime("%d%m%y"), enigma.encrypt("Hello World!", "02715").values[2]
+  end
+
+  def test_it_encrypts_message_with_random_key_and_date
+    enigma = Enigma.new
+    assert_equal 5, enigma.encrypt("Hello World!").values[1].length
   end
 end

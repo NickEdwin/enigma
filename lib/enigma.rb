@@ -5,10 +5,8 @@ require 'date'
 
 class Enigma
 
-  # def initialize(string, key = '%05d' % rand(0..99999), offset = Time.new.strftime('%d%m%y'))
-  #   @string = string
-  #   @key = Key.new(key).generate_key
-  #   @offset = Offset.new(offset).final_offset
-  # end
-
+  def encrypt(message, key = rand(0..99999).to_s.ljust(5, '0'), date = Time.new.strftime("%d%m%y"))
+    message = Encryption.new(message, key, date)
+    message.encryption_result
+  end
 end
