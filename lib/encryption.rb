@@ -47,7 +47,6 @@ class Encryption
         index_counter += 1
       elsif index_counter == 0 || index_counter % 4 == 0
         new_index = alphabet.index(letter) + shift[:A]
-        #/
         return_string += alphabet[new_index]
         index_counter += 1
       elsif index_counter == 1 || index_counter % 4 == 1
