@@ -9,36 +9,35 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, enigma
   end
 
-  def test_it_has_attributes
+  def test_it_encrypts_message_with_known_input
     enigma = Enigma.new
-    assert_instance_of Hash, enigma.key
-    assert_equal 4, enigma.key.length
-    assert_instance_of Hash, enigma.date
-    assert_equal 4, enigma.date.length
+    expected = {encryption: "keder ohulw!", key: "02715", date: "040895"}
+    assert_equal expected, enigma.encrypt("Hello World!", "02715", "040895")
   end
 
-  def test_it_finds_full_alphabet
+  def test_it_encrypts_message_with_todays_date
     enigma = Enigma.new
-    expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-      "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
-    assert_equal expected, enigma.alphabet
-    assert_equal 27, enigma.alphabet.length
+    assert_equal Time.new.strftime("%d%m%y"), enigma.encrypt("Hello World!", "02715").values[2]
   end
 
-  def test_it_totals_key_and_date_hash_keys
+  def test_it_encrypts_message_with_random_key_and_date
     enigma = Enigma.new
-    assert_equal 4, enigma.shift.length
-    assert_equal [:A, :B, :C, :D], enigma.shift.keys
+    assert_equal 5, enigma.encrypt("Hello World!").values[1].length
   end
 
-  def test_it_downcases_and_splits_input
+  def test_it_encrypts_message_with_known_input
     enigma = Enigma.new
-    expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
-    assert_equal expected, enigma.split_input("HELLO WORLD")
+    expected = {decryption: "hello world!", key: "02715", date: "040895"}
+    assert_equal expected, enigma.decrypt("keder ohulw!", "02715", "040895")
   end
 
-  def test_it_encrypts_a_message
+  def test_it_decrypts_message_with_todays_date
     enigma = Enigma.new
-    assert_equal "WTF", enigma.encryption("Hello World!")
+    assert_equal Time.new.strftime("%d%m%y"), enigma.decrypt("Hello World!", "02715").values[2]
+  end
+
+  def test_it_decrypts_message_with_random_key_and_date
+    enigma = Enigma.new
+    assert_equal 5, enigma.decrypt("Hello World!").values[1].length
   end
 end
