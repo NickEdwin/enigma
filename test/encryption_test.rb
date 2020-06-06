@@ -44,6 +44,10 @@ class EncryptionTest < Minitest::Test
   def test_it_ecrypts_string
     encryption = Encryption.new("Hello World!", "02715", "040895")
     assert_equal "keder ohulw!", encryption.encryption(encryption.string)
+  end
 
+  def test_it_decrypts_String
+    encryption = Encryption.new("keder ohulw!", "02715", "040895")
+    assert_equal "hello world!", encryption.decryption(encryption.string)
   end
 end
