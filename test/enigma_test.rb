@@ -25,12 +25,6 @@ class EnigmaTest < Minitest::Test
     assert_equal 5, enigma.encrypt("Hello World!").values[1].length
   end
 
-  def test_it_encrypts_message_with_known_input
-    enigma = Enigma.new
-    expected = {decryption: "hello world!", key: "02715", date: "040895"}
-    assert_equal expected, enigma.decrypt("keder ohulw!", "02715", "040895")
-  end
-
   def test_it_decrypts_message_with_todays_date
     enigma = Enigma.new
     assert_equal Time.new.strftime("%d%m%y"), enigma.decrypt("Hello World!", "02715").values[2]
