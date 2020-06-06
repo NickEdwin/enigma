@@ -30,14 +30,7 @@ class Encryption
   def split_input
     @string.downcase.split(//)
   end
-
-  def  encryption_alphabet_guard
-    new_index = 0
-    if new_index > 27
-      new_index = new_index % 27
-    end
-  end
-
+  
   def encryption
     index_counter = 0
     return_string = ""
@@ -47,6 +40,9 @@ class Encryption
         index_counter += 1
       elsif index_counter == 0 || index_counter % 4 == 0
         new_index = alphabet.index(letter) + shift[:A]
+          if new_index > 27
+            new_index = new_index % 27
+          end
         return_string += alphabet[new_index]
         index_counter += 1
       elsif index_counter == 1 || index_counter % 4 == 1
