@@ -27,8 +27,8 @@ class Encryption
     key.merge!(date) { |_, key_value, date_value| key_value + date_value}
   end
 
-  def split_input(input)
-    input.downcase.split(//)
+  def split_input
+    @string.downcase.split(//)
   end
 
   def  encryption_alphabet_guard
@@ -41,7 +41,7 @@ class Encryption
   def encryption(string)
     index_counter = 0
     return_string = ""
-    split_input(string).each do |letter|
+    split_input.each do |letter|
       if !alphabet.include?(letter)
         return_string += letter
         index_counter += 1
@@ -78,7 +78,7 @@ class Encryption
   def decryption(string)
     index_counter = 0
     return_string = ""
-    split_input(string).each do |letter|
+    split_input.each do |letter|
       if !alphabet.include?(letter)
         return_string += letter
         index_counter += 1

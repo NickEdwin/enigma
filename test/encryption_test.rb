@@ -38,7 +38,7 @@ class EncryptionTest < Minitest::Test
   def test_it_downcases_and_splits_input
     encryption = Encryption.new("Hello World!", "02715", "040895")
     expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d", "!"]
-    assert_equal expected, encryption.split_input(encryption.string)
+    assert_equal expected, encryption.split_input
   end
 
   def test_it_ecrypts_string
