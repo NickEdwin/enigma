@@ -38,7 +38,7 @@ class Encryption
     end
   end
 
-  def encryption(string)
+  def encryption
     index_counter = 0
     return_string = ""
     split_input.each do |letter|
@@ -75,7 +75,7 @@ class Encryption
     return_string
   end
 
-  def decryption(string)
+  def decryption
     index_counter = 0
     return_string = ""
     split_input.each do |letter|
@@ -116,14 +116,14 @@ class Encryption
   end
 
   def encryption_result
-    { encryption: encryption(string),
+    { encryption: encryption,
       key: @key,
       date: @date
     }
    end
 
    def decryption_result
-     { decryption: decryption(string),
+     { decryption: decryption,
        key: @key,
        date: @date
      }
