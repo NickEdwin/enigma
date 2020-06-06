@@ -40,4 +40,9 @@ class EnigmaTest < Minitest::Test
     enigma = Enigma.new
     assert_equal 5, enigma.decrypt("Hello World!").values[1].length
   end
+
+  def test_it_encrypts_a_message
+    enigma = Enigma.new
+    assert_equal "WTF", enigma.encryption("Hello World!")
+  end
 end

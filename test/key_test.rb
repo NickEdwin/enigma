@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/key'
 
-class EncryptTest < Minitest::Test
+class KeyTest < Minitest::Test
 
   def test_it_exists
     key = Key.new("12345")
