@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/encryption'
+require './test/test_helper'
 
 class EncryptionTest < Minitest::Test
 
