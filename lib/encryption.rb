@@ -108,12 +108,12 @@ class Encryption
       key: @key,
       date: @date
     }
-   end
+  end
 
    def decryption_result
      { decryption: decryption,
        key: @key,
        date: @date
      }
-    end
+  end
 end
