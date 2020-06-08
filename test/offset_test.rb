@@ -24,4 +24,9 @@ class OffsetTest < Minitest::Test
     expected = ({A: 1, B: 0, C: 2, D: 5})
     assert_equal expected, offset.final_offset
   end
+
+  def test_it_works_with_todays_date
+    offset = Offset.new(Time.new.strftime("%d%m%y"))
+    assert_equal 4, offset.final_offset.length
+  end
 end
