@@ -24,7 +24,6 @@ class EncryptionTest < Minitest::Test
     assert_equal 27, encryption.alphabet.length
   end
 
-
   def test_it_totals_key_and_date_hash_keys
     encryption = Encryption.new("Hello World!", "02715", "040895")
     assert_equal 4, encryption.shift.length
