@@ -23,4 +23,10 @@ class KeyTest < Minitest::Test
     expected = {:A=>12, :B=>23, :C=>34, :D=>45}
     assert_equal expected, key.generate_key
   end
+
+  def test_it_works_with_random_generation_of_key
+    key = Key.new(rand(0..99999).to_s.ljust(5, '0'))
+    assert_equal 5, key.key.length
+    assert_equal 4, key.generate_key.length
+  end
 end
